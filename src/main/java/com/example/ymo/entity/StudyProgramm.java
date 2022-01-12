@@ -1,4 +1,4 @@
-package com.example.ymo.model;
+package com.example.ymo.entity;
 
 import javax.persistence.*;
 import java.time.LocalDate;

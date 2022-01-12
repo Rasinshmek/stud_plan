@@ -1,10 +1,12 @@
-package com.example.ymo.model;
+package com.example.ymo.entity;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "semestr")
 public class Semestr {
+    public Semestr() {
+    }
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -38,7 +40,7 @@ public class Semestr {
 
     @ManyToOne
     @JoinColumn(name = "id_node")
-    private Node idNode;
+    private Node Node;
 
     @Column(name = "ze")
     private Integer ze;
@@ -96,11 +98,11 @@ public class Semestr {
     }
 
     public Node getIdNode() {
-        return idNode;
+        return Node;
     }
 
-    public void setIdNode(Node idNode) {
-        this.idNode = idNode;
+    public void setNode(Node Node) {
+        this.Node = Node;
     }
 
     public String getCourseWorkType() {

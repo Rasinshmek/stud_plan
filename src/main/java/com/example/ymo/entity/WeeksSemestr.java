@@ -1,6 +1,4 @@
-package com.example.ymo.model;
-
-import com.example.ymo.model.Plan;
+package com.example.ymo.entity;
 
 import javax.persistence.*;
 

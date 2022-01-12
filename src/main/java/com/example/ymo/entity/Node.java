@@ -1,6 +1,7 @@
-package com.example.ymo.model;
+package com.example.ymo.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "node")
@@ -8,8 +9,7 @@ public class Node {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    private Integer id;
-
+    private Integer idNode;
     @ManyToOne
     @JoinColumn(name = "id_subject")
     private Subject idSubject;
@@ -20,7 +20,6 @@ public class Node {
     @ManyToOne
     @JoinColumn(name = "id_plan")
     private Plan idPlan;
-
     public Plan getIdPlan() {
         return idPlan;
     }
@@ -45,11 +44,9 @@ public class Node {
         this.idSubject = idSubject;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getIdNode() {
+        return idNode;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    public void setIdNode(Integer id) {this.idNode = idNode;}
 }

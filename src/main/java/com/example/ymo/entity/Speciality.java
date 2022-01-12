@@ -1,32 +1,20 @@
-package com.example.ymo.model;
+package com.example.ymo.entity;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "subject")
-public class Subject {
+@Table(name = "speciality")
+public class Speciality {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Column(name = "name", nullable = false, length = 50)
+    @Column(name = "name", nullable = false, length = 100)
     private String name;
 
     @Column(name = "shifr", length = 50)
     private String shifr;
-
-    @ManyToOne
-    @JoinColumn(name = "id_unit")
-    private GroupUnit idUnit;
-
-    public GroupUnit getIdUnit() {
-        return idUnit;
-    }
-
-    public void setIdUnit(GroupUnit idUnit) {
-        this.idUnit = idUnit;
-    }
 
     public String getShifr() {
         return shifr;

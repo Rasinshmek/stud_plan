@@ -1,24 +1,25 @@
-package com.example.ymo.model;
+package com.example.ymo.entity;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "diplom")
-public class Diplom {
+@Table(name = "certification")
+public class Certification {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Column(name = "name", length = 100)
-    private String name;
+    @ManyToOne
+    @JoinColumn(name = "id_plan")
+    private Plan idPlan;
 
-    public String getName() {
-        return name;
+    public Plan getIdPlan() {
+        return idPlan;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setIdPlan(Plan idPlan) {
+        this.idPlan = idPlan;
     }
 
     public Integer getId() {

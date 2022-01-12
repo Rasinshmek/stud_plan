@@ -1,7 +1,4 @@
-package com.example.ymo.model;
-
-import com.example.ymo.model.Diplom;
-import com.example.ymo.model.Speciality;
+package com.example.ymo.entity;
 
 import javax.persistence.*;
 
@@ -16,10 +13,6 @@ public class Plan {
     @ManyToOne
     @JoinColumn(name = "id_speciality")
     private Speciality idSpeciality;
-
-    @ManyToOne
-    @JoinColumn(name = "id_")
-    private Diplom idDiplom;
 
     public Speciality getIdSpeciality() {
         return idSpeciality;
