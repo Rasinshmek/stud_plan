@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 public class SemestrController {
     @Autowired
     private SemestrService semService;
+    
     @PostMapping
     public ResponseEntity addSemestr(@RequestBody Semestr sem, @RequestParam Integer id_node)
     {
@@ -22,7 +23,6 @@ public class SemestrController {
             return ResponseEntity.badRequest().body(ex.getMessage());
         }
     }
-
 
     @GetMapping
     public ResponseEntity getOneSemestrById(@RequestParam Integer id) {

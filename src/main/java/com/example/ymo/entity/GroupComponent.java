@@ -1,6 +1,7 @@
 package com.example.ymo.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "group_components")
