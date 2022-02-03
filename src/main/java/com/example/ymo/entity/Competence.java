@@ -10,11 +10,22 @@ public class Competence {
     @Column(name = "id", nullable = false)
     private Integer id;
 
+    @Column(name = "name_competence", length = 100)
+    private String nameCompetence;
+
     public Integer getId() {
         return id;
     }
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getNameCompetence() {
+        return nameCompetence;
+    }
+
+    public void setNameCompetence(String name) {
+        this.nameCompetence = nameCompetence;
     }
 }
