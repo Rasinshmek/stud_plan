@@ -11,8 +11,8 @@ public class GroupComponentService {
     @Autowired
     GroupComponentRepo groupComponentRepo;
 
-    public  GroupComponent add( GroupComponent groupUnit) {
-        return groupComponentRepo.save(groupUnit);
+    public  GroupComponent add( GroupComponent groupComponent ) {
+        return groupComponentRepo.save(groupComponent);
     }
 
     public Iterable<GroupComponent> getAll() {

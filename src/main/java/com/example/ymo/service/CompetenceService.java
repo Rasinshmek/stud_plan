@@ -11,8 +11,8 @@ public class CompetenceService {
     @Autowired
     CompetenceRepo competenceRepo;
 
-    public  Competence add( Competence groupUnit) {
-        return competenceRepo.save(groupUnit);
+    public  Competence add( Competence competence) {
+        return competenceRepo.save(competence);
     }
 
     public Iterable<Competence> getAll() {
@@ -20,8 +20,8 @@ public class CompetenceService {
     }
 
     public Competence getOne(Integer id) {
-        Competence groupComponent = competenceRepo.findById(id).get();
-        return groupComponent;
+        Competence competence = competenceRepo.findById(id).get();
+        return competence;
     }
 
     public Integer delete(Integer id) {

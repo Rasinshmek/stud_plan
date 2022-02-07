@@ -31,8 +31,8 @@ public class SubCompetenceService {
 
     public SubCompetence getOne(Integer id)
     {
-        SubCompetence groupUnit = subCompetenceRepo.findById(id).get();
-        return groupUnit;
+        SubCompetence subCompetence = subCompetenceRepo.findById(id).get();
+        return subCompetence;
     }
     public Integer delete(Integer id) {
         subCompetenceRepo.deleteById(id);
