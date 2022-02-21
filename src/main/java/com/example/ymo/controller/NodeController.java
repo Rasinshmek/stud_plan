@@ -2,7 +2,6 @@ package com.example.ymo.controller;
 
 import com.example.ymo.entity.Node;
 import com.example.ymo.service.NodeService;
-import com.example.ymo.service.SemestrService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,28 +10,40 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/node")
 public class NodeController {
     @Autowired
-    private NodeService nodeService;
-    @PostMapping
-    public ResponseEntity addNode(@RequestBody Node node)
-    {try
-     {
-        nodeService.addNode(node);
-         return ResponseEntity.ok("Нода сохранена");
-     }
-        catch(Exception ex)
-         {
-             return ResponseEntity.badRequest().body(ex.getMessage());
-         }
-    }
+    NodeService nodeService;
+
     @GetMapping
-    public ResponseEntity getOneNodeById(@RequestParam Integer id)
-    {
-        try
-        {
-        return ResponseEntity.ok(nodeService.getOneNodeById(id));
+    public ResponseEntity getAll() {
+        try {
+            return ResponseEntity.ok(nodeService.getAll());
+        } catch (Exception ex) {
+            return ResponseEntity.badRequest().body(ex.getMessage());
         }
-        catch(Exception ex)
-        {
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity getOne(@PathVariable Integer id ) {
+        try {
+            return ResponseEntity.ok(nodeService.getOne(id));
+        } catch (Exception ex) {
+            return ResponseEntity.badRequest().body(ex.getMessage());
+        }
+    }
+
+    @PostMapping
+    public ResponseEntity create(@RequestBody Node node, @RequestParam Integer planId, @RequestParam Integer subjectId) {
+        try {
+            return ResponseEntity.ok(nodeService.add(node, planId,subjectId ));
+        } catch (Exception ex) {
+            return ResponseEntity.badRequest().body(ex.getMessage());
+        }
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity delete(@PathVariable Integer id) {
+        try {
+            return ResponseEntity.ok(nodeService.delete(id));
+        } catch (Exception ex) {
             return ResponseEntity.badRequest().body(ex.getMessage());
         }
     }

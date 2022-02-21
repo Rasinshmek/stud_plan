@@ -39,5 +39,4 @@ public class SubCompetenceService {
         return id;
     }
 
-
 }

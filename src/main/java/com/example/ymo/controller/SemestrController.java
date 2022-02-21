@@ -1,7 +1,6 @@
 package com.example.ymo.controller;
 
 import com.example.ymo.entity.Semestr;
-import com.example.ymo.repository.SemestrRepo;
 import com.example.ymo.service.SemestrService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -11,23 +10,39 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/semestr")
 public class SemestrController {
     @Autowired
-    private SemestrService semService;
-    
-    @PostMapping
-    public ResponseEntity addSemestr(@RequestBody Semestr sem, @RequestParam Integer id_node)
-    {
+    SemestrService semestrService;
+
+    @GetMapping
+    public ResponseEntity getAll() {
         try {
-            semService.addSemestr(sem, id_node);
-            return ResponseEntity.ok("Семестр сохранён");
+            return ResponseEntity.ok(semestrService.getAll());
         } catch (Exception ex) {
             return ResponseEntity.badRequest().body(ex.getMessage());
         }
     }
 
-    @GetMapping
-    public ResponseEntity getOneSemestrById(@RequestParam Integer id) {
+    @GetMapping("/{id}")
+    public ResponseEntity getOne(@PathVariable Integer id ) {
         try {
-            return ResponseEntity.ok(semService.getOneSemetrById(id));
+            return ResponseEntity.ok(semestrService.getOne(id));
+        } catch (Exception ex) {
+            return ResponseEntity.badRequest().body(ex.getMessage());
+        }
+    }
+
+    @PostMapping
+    public ResponseEntity create(@RequestBody Semestr semestr, @RequestParam Integer nodeId) {
+        try {
+            return ResponseEntity.ok(semestrService.add(semestr, nodeId));
+        } catch (Exception ex) {
+            return ResponseEntity.badRequest().body(ex.getMessage());
+        }
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity delete(@PathVariable Integer id) {
+        try {
+            return ResponseEntity.ok(semestrService.delete(id));
         } catch (Exception ex) {
             return ResponseEntity.badRequest().body(ex.getMessage());
         }
