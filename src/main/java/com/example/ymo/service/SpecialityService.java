@@ -1,6 +1,5 @@
 package com.example.ymo.service;
 
-import com.example.ymo.entity.Diplom;
 import com.example.ymo.entity.Speciality;
 import com.example.ymo.repository.SpecialityRepo;
 import org.springframework.beans.factory.annotation.Autowired;

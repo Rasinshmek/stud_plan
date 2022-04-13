@@ -14,6 +14,17 @@ public class Plan {
     @JoinColumn(name = "id_speciality")
     private Speciality idSpeciality;
 
+    @Column(name = "diplom_name", length = 100)
+    private String diplomName;
+
+    public String getDiplomName() {
+        return diplomName;
+    }
+
+    public void setName(String diplomName) {
+        this.diplomName = diplomName;
+    }
+
     public Speciality getIdSpeciality() {
         return idSpeciality;
     }

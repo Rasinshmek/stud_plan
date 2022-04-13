@@ -1,8 +1,6 @@
 package com.example.ymo.service;
-import com.example.ymo.entity.Diplom;
 import com.example.ymo.entity.Plan;
 import com.example.ymo.entity.Speciality;
-import com.example.ymo.repository.DiplomRepo;
 import com.example.ymo.repository.PlanRepo;
 import com.example.ymo.repository.SpecialityRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +12,6 @@ public class PlanService {
     PlanRepo planRepo;
     @Autowired
     SpecialityRepo specialityRepo;
-    @Autowired
-    DiplomRepo diplomRepo;
     public Plan add(Plan plan, Integer specialityId )
     {
         Speciality speciality = specialityRepo.findById(specialityId).get();
