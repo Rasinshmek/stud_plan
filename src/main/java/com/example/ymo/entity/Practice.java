@@ -23,6 +23,17 @@ public class Practice {
     @Column(name = "count_week")
     private Integer countWeek;
 
+    @Column(name = "ze")
+    private Integer ze;
+
+    public Integer getZe() {
+        return ze;
+    }
+
+    public void setZe(Integer ze) {
+        this.ze = ze;
+    }
+
     public Integer getCountWeek() {
         return countWeek;
     }

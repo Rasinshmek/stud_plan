@@ -20,6 +20,18 @@ public class Node {
     @ManyToOne
     @JoinColumn(name = "id_plan")
     private Plan idPlan;
+
+    @Column(name = "node_number", length = 10)
+    private String nodeNumber;
+
+    public String getNodeNumber() {
+        return nodeNumber;
+    }
+
+    public void setNodeNumber(String nodeNumber) {
+        this.nodeNumber = nodeNumber;
+    }
+
     public Plan getIdPlan() {
         return idPlan;
     }
