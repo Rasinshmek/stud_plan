@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 public class SpecialityController {
     @Autowired
     SpecialityService specialityService;
-
     @GetMapping
     public ResponseEntity getAll() {
         try {
