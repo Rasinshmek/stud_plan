@@ -31,7 +31,7 @@ public class StudyProgrammController {
     }
 
     @PostMapping
-    public ResponseEntity create(@RequestBody String studyProgramm, @RequestParam Integer subjectId) {
+    public ResponseEntity create(@RequestBody StudyProgramm studyProgramm, @RequestParam Integer subjectId) {
         try {
             return ResponseEntity.ok(studyProgrammService.add(studyProgramm, subjectId));
         } catch (Exception ex) {

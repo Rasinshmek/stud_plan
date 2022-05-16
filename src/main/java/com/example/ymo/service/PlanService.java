@@ -20,10 +20,8 @@ public class PlanService {
     {
         Speciality speciality = specialityRepo.findById(specialityId).get();
         JSONObject json = new JSONObject(plan);
-        LocalDate enrollmentYear = LocalDate.parse(json.getString("enrollmentYear"));
         LocalDate utv_date = LocalDate.parse(json.getString("utvDate"));
         plan.setEnrollmentYear(utv_date);
-        plan.setEnrollmentYear(enrollmentYear);
          plan.setIdSpeciality(speciality);
         return planRepo.save(plan);
     }
