@@ -24,19 +24,19 @@ public class Competence {
         this.shifrCompetence = shifrCompetence;
     }
 
+    public String getNameCompetence() {
+        return nameCompetence;
+    }
+
+    public void setNameCompetence(String nameCompetence) {
+        this.nameCompetence = nameCompetence;
+    }
+
     public Integer getId() {
         return id;
     }
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getNameCompetence() {
-        return nameCompetence;
-    }
-
-    public void setNameCompetence(String name) {
-        this.nameCompetence = nameCompetence;
     }
 }

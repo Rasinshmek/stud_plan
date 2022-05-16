@@ -24,7 +24,7 @@ public class PlanService {
         LocalDate utv_date = LocalDate.parse(json.getString("utvDate"));
         plan.setEnrollmentYear(utv_date);
         plan.setEnrollmentYear(enrollmentYear);
-        plan.setIdSpeciality(speciality);
+         plan.setIdSpeciality(speciality);
         return planRepo.save(plan);
     }
     public Iterable<Plan> getAll()
