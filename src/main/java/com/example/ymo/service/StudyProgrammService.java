@@ -20,11 +20,9 @@ public class StudyProgrammService {
     @Autowired
     SubjectRepo subjectRepo ;
 
-    public StudyProgramm add(StudyProgramm resp, Integer subjectId)
-    {   JSONObject json = new JSONObject(resp);
+    public StudyProgramm add(StudyProgramm studyProgramm, Integer subjectId)
+    {   JSONObject json = new JSONObject(studyProgramm);
         LocalDate date = LocalDate.parse(json.getString("dateApprove"));
-        StudyProgramm studyProgramm = new StudyProgramm();
-        studyProgramm.setId(json.getInt("id"));
         studyProgramm.setDateApprove(date);
         Subject subject = subjectRepo.findById(subjectId).get();
         studyProgramm.setIdSubject(subject);
