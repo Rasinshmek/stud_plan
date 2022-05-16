@@ -44,7 +44,7 @@ public class Plan {
     @Column(name = "education_form")
     private String educationForm;
 
-    @Column(name = "GovExam")
+    @Column(name = "gov_exam")
     private Integer govExam;
 
     public Integer getGovExam() {
