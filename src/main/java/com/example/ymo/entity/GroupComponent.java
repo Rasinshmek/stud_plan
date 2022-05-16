@@ -15,6 +15,17 @@ public class GroupComponent {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "component_number", length = 10)
+    private String componentNumber;
+
+    public String getComponentNumber() {
+        return componentNumber;
+    }
+
+    public void setComponentNumber(String componentNumber) {
+        this.componentNumber = componentNumber;
+    }
+
     public String getName() {
         return name;
     }

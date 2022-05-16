@@ -13,6 +13,17 @@ public class Competence {
     @Column(name = "name_competence", length = 100)
     private String nameCompetence;
 
+    @Column(name = "shifr_competence", length = 45)
+    private String shifrCompetence;
+
+    public String getShifrCompetence() {
+        return shifrCompetence;
+    }
+
+    public void setShifrCompetence(String shifrCompetence) {
+        this.shifrCompetence = shifrCompetence;
+    }
+
     public Integer getId() {
         return id;
     }

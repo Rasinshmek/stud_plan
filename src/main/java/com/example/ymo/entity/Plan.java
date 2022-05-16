@@ -44,6 +44,17 @@ public class Plan {
     @Column(name = "education_form")
     private String educationForm;
 
+    @Column(name = "GovExam")
+    private Integer govExam;
+
+    public Integer getGovExam() {
+        return govExam;
+    }
+
+    public void setGovExam(Integer govExam) {
+        this.govExam = govExam;
+    }
+
     public String getEducationForm() {
         return educationForm;
     }

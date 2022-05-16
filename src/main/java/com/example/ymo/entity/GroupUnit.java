@@ -17,6 +17,17 @@ public class GroupUnit {
     @JoinColumn(name = "id_group_components")
     private GroupComponent idGroupComponents;
 
+    @Column(name = "unit_number", length = 10)
+    private String unitNumber;
+
+    public String getUnitNumber() {
+        return unitNumber;
+    }
+
+    public void setUnitNumber(String unitNumber) {
+        this.unitNumber = unitNumber;
+    }
+
     public GroupComponent getIdGroupComponents() {
         return idGroupComponents;
     }
