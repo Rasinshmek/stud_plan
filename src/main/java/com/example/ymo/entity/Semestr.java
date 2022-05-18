@@ -5,6 +5,9 @@ import javax.persistence.*;
 @Entity
 @Table(name = "semestr")
 public class Semestr {
+    @Column(name = "selfeducation")
+    private Integer selfeducation;
+
     public Semestr() {
     }
     @Id
@@ -56,6 +59,14 @@ public class Semestr {
 
     @Column(name = "id_faculty")
     private Integer idFaculty;
+
+    public Integer getSelfeducation() {
+        return selfeducation;
+    }
+
+    public void setSelfeducation(Integer selfeducation) {
+        this.selfeducation = selfeducation;
+    }
 
     public Integer getIdFaculty() {
         return idFaculty;
