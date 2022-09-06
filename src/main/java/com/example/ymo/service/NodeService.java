@@ -10,6 +10,9 @@ import com.example.ymo.repository.SubjectRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class NodeService {
     @Autowired
@@ -35,6 +38,19 @@ public class NodeService {
     {
         Node node = nodeRepo.findById(id).get();
         return node;
+    }
+    public Iterable<Node> getForOnePlan(Integer planId)
+    {
+        List<Node> list =(List)nodeRepo.findAll();
+        List<Node> newlist= new ArrayList<Node>();
+        for(Node n : list)
+        {
+           if (n.getIdPlan().getId()==planId)
+           {
+               newlist.add(n);
+           }
+        }
+        return newlist;
     }
     public Integer delete(Integer id) {
         nodeRepo.deleteById(id);

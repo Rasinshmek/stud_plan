@@ -26,6 +26,15 @@ public class NodeController {
         try {
             return ResponseEntity.ok(nodeService.getOne(id));
         } catch (Exception ex) {
+
+            return ResponseEntity.badRequest().body(ex.getMessage());
+        }
+    }
+    @GetMapping(value = "/planId/{planId}")
+    public ResponseEntity getForOnePlan(@PathVariable Integer planId) {
+        try {
+            return ResponseEntity.ok(nodeService.getForOnePlan(planId));
+        } catch (Exception ex) {
             return ResponseEntity.badRequest().body(ex.getMessage());
         }
     }
