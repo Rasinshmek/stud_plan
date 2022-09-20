@@ -20,6 +20,28 @@ public class GroupUnit {
     @Column(name = "unit_number", length = 10)
     private String unitNumber;
 
+    @Column(name = "group_unitscol", length = 45)
+    private String groupUnitscol;
+
+    @Column(name = "id_plana")
+    private Integer idPlana;
+
+    public Integer getIdPlana() {
+        return idPlana;
+    }
+
+    public void setIdPlana(Integer idPlana) {
+        this.idPlana = idPlana;
+    }
+
+    public String getGroupUnitscol() {
+        return groupUnitscol;
+    }
+
+    public void setGroupUnitscol(String groupUnitscol) {
+        this.groupUnitscol = groupUnitscol;
+    }
+
     public String getUnitNumber() {
         return unitNumber;
     }
