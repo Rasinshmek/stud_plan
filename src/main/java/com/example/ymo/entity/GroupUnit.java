@@ -1,6 +1,8 @@
 package com.example.ymo.entity;
 
 import javax.persistence.*;
+import java.util.Collection;
+import java.util.List;
 
 @Entity
 @Table(name = "group_units")
@@ -12,7 +14,8 @@ public class GroupUnit {
 
     @Column(name = "name", length = 100)
     private String name;
-
+   // @OneToMany(mappedBy = "idUnit")
+   // private List<Subject> subjects;
     @ManyToOne
     @JoinColumn(name = "id_group_components")
     private GroupComponent idGroupComponents;
@@ -73,4 +76,10 @@ public class GroupUnit {
     public void setId(Integer id) {
         this.id = id;
     }
+
+  //  public Iterable<Subject> getSubjects() {return subjects;}
+
+   // public void setSubjects(List<Subject> subjects) {
+   //     this.subjects = subjects;
+   // }
 }
