@@ -42,7 +42,7 @@ public class NodeController {
     @PostMapping
     public ResponseEntity create(@RequestBody Node node, @RequestParam Integer planId, @RequestParam Integer subjectId) {
         try {
-            return ResponseEntity.ok(nodeService.add(node, planId,subjectId ));
+            return ResponseEntity.ok(nodeService.add(node, planId, subjectId ));
         } catch (Exception ex) {
             return ResponseEntity.badRequest().body(ex.getMessage());
         }

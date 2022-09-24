@@ -9,7 +9,8 @@ public class Node {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    private Integer idNode;
+    private Integer id;
+
     @ManyToOne
     @JoinColumn(name = "id_subject")
     private Subject idSubject;
@@ -56,9 +57,9 @@ public class Node {
         this.idSubject = idSubject;
     }
 
-    public Integer getIdNode() {
-        return idNode;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdNode(Integer id) {this.idNode = idNode;}
+    public void setId(Integer id) {this.id = id;}
 }
