@@ -34,7 +34,15 @@ public class PlanController {
             return ResponseEntity.badRequest().body(ex.getMessage());
         }
     }
-
+    @GetMapping("/{id}/summ")
+    @ApiOperation("Получить суммы по плану id")
+    public ResponseEntity getSumm(@PathVariable Integer id ) {
+        try {
+            return ResponseEntity.ok(planService.getSumm(id));
+        } catch (Exception ex) {
+            return ResponseEntity.badRequest().body(ex.getMessage());
+        }
+    }
     @PostMapping
     @ApiOperation("Добавление и обновление плана")
     public ResponseEntity create(@RequestBody Plan plan, @RequestParam Integer specialityId) {
