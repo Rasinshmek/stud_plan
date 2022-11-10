@@ -8,6 +8,7 @@ com\example\ymo\service\PracticeService.class
 com\example\ymo\repository\CompetenceRepo.class
 com\example\ymo\entity\Certification.class
 com\example\ymo\service\CreatorStudyProgrammService.class
+com\example\ymo\entity\Summ.class
 com\example\ymo\service\WeeksSemestrService.class
 com\example\ymo\entity\SubCompetence.class
 com\example\ymo\controller\CreatorStudyProgrammController.class
