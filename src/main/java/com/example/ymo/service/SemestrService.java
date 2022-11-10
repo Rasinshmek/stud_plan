@@ -8,6 +8,9 @@ import com.example.ymo.repository.SemestrRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class SemestrService {
     @Autowired
@@ -29,6 +32,12 @@ public class SemestrService {
     {
         Semestr semestr = semestrRepo.findById(id).get();
         return semestr;
+    }
+    public List<Semestr> getSemestrsPlanId(Integer id)
+    {
+        List<Semestr> all= (List)semestrRepo.findAll();
+        List<Semestr> filtred=all.stream().filter(s->s.getIdNode().getIdPlan().getId().equals(id)).collect(Collectors.toList());
+      return filtred;
     }
     public Integer delete(Integer id) {
         semestrRepo.deleteById(id);

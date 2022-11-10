@@ -2,6 +2,7 @@ package com.example.ymo.controller;
 
 import com.example.ymo.entity.Semestr;
 import com.example.ymo.service.SemestrService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +21,15 @@ public class SemestrController {
             return ResponseEntity.badRequest().body(ex.getMessage());
         }
     }
-
+    @GetMapping("/plan/{id}")
+    @ApiOperation("Получить семестры по id плана")
+    public ResponseEntity getSemestrsPlanId(@PathVariable Integer id ) {
+        try {
+            return ResponseEntity.ok(semestrService.getSemestrsPlanId(id));
+        } catch (Exception ex) {
+            return ResponseEntity.badRequest().body(ex.getMessage());
+        }
+    }
     @GetMapping("/{id}")
     public ResponseEntity getOne(@PathVariable Integer id ) {
         try {
