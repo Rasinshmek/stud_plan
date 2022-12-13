@@ -5,11 +5,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "semestr")
 public class Semestr {
-    @Column(name = "selfeducation")
-    private Integer selfeducation;
-
-    public Semestr() {
-    }
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -43,13 +38,13 @@ public class Semestr {
 
     @ManyToOne
     @JoinColumn(name = "id_node")
-    private Node Node;
+    private Node idNode;
 
     @Column(name = "ze")
-    private Integer ze;
+    private Double ze;
 
     @Column(name = "cource_work_ze")
-    private Integer courceWorkZe;
+    private Double courceWorkZe;
 
     @Column(name = "cource_work_hours")
     private Integer courceWorkHours;
@@ -59,6 +54,9 @@ public class Semestr {
 
     @Column(name = "id_faculty")
     private Integer idFaculty;
+
+    @Column(name = "selfeducation")
+    private Integer selfeducation;
 
     public Integer getSelfeducation() {
         return selfeducation;
@@ -92,28 +90,28 @@ public class Semestr {
         this.courceWorkHours = courceWorkHours;
     }
 
-    public Integer getCourceWorkZe() {
+    public Double getCourceWorkZe() {
         return courceWorkZe;
     }
 
-    public void setCourceWorkZe(Integer courceWorkZe) {
+    public void setCourceWorkZe(Double courceWorkZe) {
         this.courceWorkZe = courceWorkZe;
     }
 
-    public Integer getZe() {
+    public Double getZe() {
         return ze;
     }
 
-    public void setZe(Integer ze) {
+    public void setZe(Double ze) {
         this.ze = ze;
     }
 
     public Node getIdNode() {
-        return Node;
+        return idNode;
     }
 
-    public void setNode(Node Node) {
-        this.Node = Node;
+    public void setIdNode(Node idNode) {
+        this.idNode = idNode;
     }
 
     public String getCourseWorkType() {

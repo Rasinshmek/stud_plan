@@ -20,7 +20,7 @@ public class SemestrService {
     public Semestr add(Semestr semestr, Integer nodeId)
     {
         Node node = nodeRepo.findById(nodeId).get();
-        semestr.setNode(node);
+        semestr.setIdNode(node);
         return semestrRepo.save(semestr);
     }
     public Iterable<Semestr> getAll()
