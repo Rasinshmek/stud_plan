@@ -26,6 +26,17 @@ public class Practice {
     @Column(name = "ze")
     private Integer ze;
 
+    @Column(name = "type", length = 30)
+    private String type;
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     public Integer getZe() {
         return ze;
     }
