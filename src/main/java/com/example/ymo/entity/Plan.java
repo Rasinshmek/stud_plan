@@ -40,12 +40,22 @@ public class Plan {
     @Column(name = "learn_year", length = 45)
     private String learnYear;
 
-    @Lob
-    @Column(name = "education_form")
+    @Column(name = "education_form", length = 20)
     private String educationForm;
 
     @Column(name = "gov_exam")
     private Integer govExam;
+
+    @Column(name = "education_level", length = 20)
+    private String educationLevel;
+
+    public String getEducationLevel() {
+        return educationLevel;
+    }
+
+    public void setEducationLevel(String educationLevel) {
+        this.educationLevel = educationLevel;
+    }
 
     public Integer getGovExam() {
         return govExam;
