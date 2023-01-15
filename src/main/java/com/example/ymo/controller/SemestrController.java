@@ -30,6 +30,15 @@ public class SemestrController {
             return ResponseEntity.badRequest().body(ex.getMessage());
         }
     }
+    @GetMapping("/utv_date/{year}")
+    @ApiOperation("Получить семестры после года утверждения")
+    public ResponseEntity getSemestrUtvDate(@PathVariable Integer year ) {
+        try {
+            return ResponseEntity.ok(semestrService.getSemestrUtvDate(year));
+        } catch (Exception ex) {
+            return ResponseEntity.badRequest().body(ex.getMessage());
+        }
+    }
     @GetMapping("/{id}")
     public ResponseEntity getOne(@PathVariable Integer id ) {
         try {

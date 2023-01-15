@@ -8,6 +8,8 @@ import com.example.ymo.repository.SemestrRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.Year;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -38,6 +40,12 @@ public class SemestrService {
         List<Semestr> all= (List)semestrRepo.findAll();
         List<Semestr> filtred=all.stream().filter(s->s.getIdNode().getIdPlan().getId().equals(id)).collect(Collectors.toList());
       return filtred;
+    }
+    public List<Semestr> getSemestrUtvDate(Integer year)
+    {
+        List<Semestr> all= (List)semestrRepo.findAll();
+        List<Semestr> filtred=all.stream().filter(s->s.getIdNode().getIdPlan().getUtvDate()==null||s.getIdNode().getIdPlan().getUtvDate().isAfter(LocalDate.of(year,1,1))).collect(Collectors.toList());
+        return filtred;
     }
     public Integer delete(Integer id) {
         semestrRepo.deleteById(id);
