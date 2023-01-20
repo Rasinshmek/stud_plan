@@ -32,7 +32,6 @@ public class Semestr {
     @Column(name = "rgr")
     private Integer rgr;
 
-    @Lob
     @Column(name = "course_work_type")
     private String courseWorkType;
 

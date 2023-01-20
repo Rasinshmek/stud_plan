@@ -44,7 +44,7 @@ public class SemestrService {
     public List<Semestr> getSemestrUtvDate(Integer year)
     {
         List<Semestr> all= (List)semestrRepo.findAll();
-        List<Semestr> filtred=all.stream().filter(s->s.getIdNode().getIdPlan().getUtvDate()==null||s.getIdNode().getIdPlan().getUtvDate().isAfter(LocalDate.of(year,1,1))).collect(Collectors.toList());
+        List<Semestr> filtred=all.stream().filter(s->s.getIdNode().getIdPlan().getUtvDate()==null||s.getIdNode().getIdPlan().getUtvDate().getYear()==year).collect(Collectors.toList());
         return filtred;
     }
     public Integer delete(Integer id) {
