@@ -21,7 +21,7 @@ public class GroupUnitController {
             return ResponseEntity.badRequest().body(ex.getMessage());
         }
     }
-    @GetMapping("/plan/{id}")
+    @GetMapping("/planId/{id}")
     @ApiOperation("Получить модули по id плана")
     public ResponseEntity getGroupUnitsPlanId(@PathVariable Integer id ) {
         try {

@@ -39,6 +39,15 @@ public class WeeksSemestrController {
         }
     }
 
+    @GetMapping(value = "/planId/{planId}")
+    public ResponseEntity getForOnePlan(@PathVariable Integer planId) {
+        try {
+            return ResponseEntity.ok(weeksSemestrService.getForOnePlan(planId));
+        } catch (Exception ex) {
+            return ResponseEntity.badRequest().body(ex.getMessage());
+        }
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity delete(@PathVariable Integer id) {
         try {

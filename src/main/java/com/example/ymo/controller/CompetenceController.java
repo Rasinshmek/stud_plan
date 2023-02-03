@@ -30,10 +30,19 @@ public class CompetenceController {
         }
     }
 
+    @GetMapping(value = "/planId/{planId}")
+    public ResponseEntity getForOnePlan(@PathVariable Integer planId) {
+        try {
+            return ResponseEntity.ok(competenceService.getForOnePlan(planId));
+        } catch (Exception ex) {
+            return ResponseEntity.badRequest().body(ex.getMessage());
+        }
+    }
+
     @PostMapping
     public ResponseEntity create(@RequestBody Competence competence) {
         try {
-            return ResponseEntity.ok(competenceService.add( competence));
+            return ResponseEntity.ok(competenceService.add(competence));
         } catch (Exception ex) {
             return ResponseEntity.badRequest().body(ex.getMessage());
         }

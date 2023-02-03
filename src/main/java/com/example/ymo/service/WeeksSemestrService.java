@@ -6,6 +6,9 @@ import com.example.ymo.repository.PlanRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class WeeksSemestrService {
     @Autowired
@@ -27,7 +30,11 @@ public class WeeksSemestrService {
         WeeksSemestr weeksSemestr = weeksSemestrRepo.findById(id).get();
         return weeksSemestr;
     }
-
+    public Iterable<WeeksSemestr> getForOnePlan(Integer planId) {
+        List<WeeksSemestr> all = (List) weeksSemestrRepo.findAll();
+        List<WeeksSemestr> filtred = all.stream().filter(p->p.getIdPlan().getId().equals(planId)).collect(Collectors.toList());
+        return filtred;
+    }
     public Integer delete(Integer id) {
         weeksSemestrRepo.deleteById(id);
         return id;
