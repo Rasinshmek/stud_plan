@@ -9,10 +9,10 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 
 public class YmoApplication {
-    static LoadFromFile l;
+    public static LoadFromFile file;
     public static void main(String[] args) throws Exception {
-        l= new LoadFromFile();
-        System.out.println(l.toString());
+        file= new LoadFromFile();
+        System.out.println(file.toString());
         SpringApplication.run(YmoApplication.class, args);
     }
 }
