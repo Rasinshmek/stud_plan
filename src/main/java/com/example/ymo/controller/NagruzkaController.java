@@ -15,12 +15,15 @@ public class NagruzkaController {
     @Autowired
     NagruzkaService nagruzkaService;
 
-    @GetMapping("")
+    @GetMapping("/nagruzka")
     @ApiOperation("Получить нагрузку")
     public ResponseEntity getNagruzka() {
+        System.out.println("11");
         try {
+            System.out.println("22");
             return ResponseEntity.ok(nagruzkaService.getNagruzka());
         } catch (Exception ex) {
+            System.out.println("33");
             return ResponseEntity.badRequest().body(ex.getMessage());
         }
     }
