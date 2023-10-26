@@ -84,15 +84,47 @@ public class NagruzkaService {
                             n.rgr = round(n.countStudenty * f.coefRGR * semestr.getRgr());
 
                             List<Practice> practices = practiceRepo.findByIdPlanAndIdSemestr(plan, curentSem);
-//                        if(practices.size()>0)
-//                        {
-//                            Practice pracice= practices.get(0);
-//
-//                            n.practice= Objects.equals(pracice.getType(), "учебная") ? f.coefPracticeUchebHour*f.coefPracticeUchebDay*pracice.getCountWeek()*n.
-//                        }
-                            System.out.println("5");
+                            if (practices.size() > 0) {
+                                Practice pracice = practices.get(0);
+                                if (Objects.equals(pracice.getType(), "учебная")) {
+                                    n.rukPractice = f.coefPracticeUchebHour * f.coefPracticeUchebDay * pracice.getCountWeek() * 1;//?
+                                }
+                                if (Objects.equals(pracice.getType(), "производственная")) {
+                                    if (Objects.equals(plan.getEducationForm(), "очная")) {
+                                        n.rukPractice = pracice.getCountWeek() * ank.getStudentCount() * f.coefPracticeProizvDnev;
+                                    }
+                                    if (Objects.equals(plan.getEducationForm(), "заочная")) {
+                                        n.rukPractice = pracice.getCountWeek() * ank.getStudentCount() * f.coefPracticeProizvZaoch1 * f.coefPracticeProizvZaoch2;
+                                    }
+                                }
+
+
+                            }
+                            n.coursRab= f.coefCursRab*ank.getStudentCount();
+                            n.coursProj= f.coefCursProject* ank.getStudentCount();
+                            //n.contrRab= f.coefContrRab*ank.getStudentCount()*1;//?
+
+                            if (Objects.equals(plan.getDiplomName(), "проект")) {
+                                n.diplomProekt =f.coefDiplomProekt*ank.getStudentCount();
+                            }
+                            if (Objects.equals(plan.getDiplomName(), "работа")) {
+
+                                n.diplomProekt =f.coefDiplomRabota*ank.getStudentCount();
+                            }
+
+                            n.gek= f.coefGEKZashDipl*ank.getStudentCount();
+
                             nagr.add(n);
-                            System.out.println("6");
+                            n.diplomProekt = f.coefDiplomRecenz*2 ;
+                            nagr.add(n);
+                            if (plan.getGovExam()!=0) {
+
+                                n.gek= f.coefGEKSpec*ank.getStudentCount();
+                                nagr.add(n);
+                            }
+
+
+
 
 
                         }
@@ -100,12 +132,11 @@ public class NagruzkaService {
                     }
                 }
                 i++;
-                System.out.println("7");
 
 
             } catch (Exception e) {
                 System.out.println(e.getMessage() + ": " + ank.getSpeciality());
-                if(ank.getSpeciality().equals("1-40 05 01")) System.out.println("Problem");
+                if (ank.getSpeciality().equals("1-40 05 01")) System.out.println("Problem");
             }
         }
 
