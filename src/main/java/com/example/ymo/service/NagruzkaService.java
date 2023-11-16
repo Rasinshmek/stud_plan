@@ -41,7 +41,7 @@ public class NagruzkaService {
         System.out.println("111");
         LoadFromFile f = new LoadFromFile();
         System.out.println("222");
-        List<AnketDTO> ankets = otherServices.getAnketDTOs();
+        List<AnketDTO> ankets = otherServices.getAnketDTOs2();
         long i = 1;
         System.out.println("2");
         for (AnketDTO ank : ankets) {
@@ -115,13 +115,13 @@ public class NagruzkaService {
                             n.gek= f.coefGEKZashDipl*ank.getStudentCount();
 
                             nagr.add(n);
-                            n.diplomProekt = f.coefDiplomRecenz*2 ;
-                            nagr.add(n);
-                            if (plan.getGovExam()!=0) {
-
-                                n.gek= f.coefGEKSpec*ank.getStudentCount();
-                                nagr.add(n);
-                            }
+//                            n.diplomProekt = f.coefDiplomRecenz*2 ;
+//                            nagr.add(n);
+//                            if (plan.getGovExam()!=0) {
+//
+//                                n.gek= f.coefGEKSpec*ank.getStudentCount();
+//                                nagr.add(n);
+//                            }
 
 
 
