@@ -39,7 +39,7 @@ public class OtherServices {
         headers.add("Authorization", "Bearer " + token);
         headers.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(headers);
-        return restTemplate.exchange("https://ebook.vstu.by/ankets",
+        return restTemplate.exchange("https://ebook.vstu.by/workload",
                 HttpMethod.GET, request, new ParameterizedTypeReference<List<AnketDTO>>() {
                 }).getBody();
     }

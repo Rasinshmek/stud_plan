@@ -33,6 +33,7 @@ com\example\ymo\entity\Node.class
 com\example\ymo\controller\PracticeController.class
 com\example\ymo\repository\FakultativRepo.class
 com\example\ymo\service\SubjectService.class
+com\example\ymo\load\OtherServices$4.class
 com\example\ymo\repository\SemestrRepo.class
 com\example\ymo\config\SwaggerConfig.class
 com\example\ymo\controller\CertificationController.class
@@ -50,6 +51,7 @@ com\example\ymo\entity\Competence.class
 com\example\ymo\service\CertificationService.class
 com\example\ymo\entity\Plan.class
 com\example\ymo\load\LoadFromFile.class
+com\example\ymo\load\OtherServices$3.class
 com\example\ymo\repository\SubCompetenceRepo.class
 com\example\ymo\controller\FakultativController.class
 com\example\ymo\entity\Speciality.class
