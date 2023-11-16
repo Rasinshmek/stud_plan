@@ -77,10 +77,15 @@ public class NagruzkaService {
                                     ((f.coefConsDnev1 * n.lecture) + (n.countStudenty * f.coefConsDnev2) + 2) :
                                     Objects.equals(plan.getEducationForm(), "заочная") ?
                                             (n.countStudenty * f.coefConsZaoch + 2) : 0);
-                            n.ekzam = round(n.countStudenty * f.coefEkzam);
-                            n.view = round(n.countStudenty * f.coefView);
-                            n.difZach = round(n.countStudenty * f.coefDifZach);
-                            n.zach = round(n.countStudenty * f.coefZach);
+                            String type = semestr.getType();
+                            if (Objects.equals(type, "экзамен"))
+                                n.ekzam = round(n.countStudenty * f.coefEkzam);
+                            if (Objects.equals(type, "просмотр"))
+                                n.view = round(n.countStudenty * f.coefView);
+                            if (Objects.equals(type, "дифзачёт"))
+                                n.difZach = round(n.countStudenty * f.coefDifZach);
+                            if (Objects.equals(type, "зачёт")) ;
+                                n.zach = round(n.countStudenty * f.coefZach);
                             n.rgr = round(n.countStudenty * f.coefRGR * semestr.getRgr());
 
                             List<Practice> practices = practiceRepo.findByIdPlanAndIdSemestr(plan, curentSem);
@@ -100,19 +105,19 @@ public class NagruzkaService {
 
 
                             }
-                            n.coursRab= f.coefCursRab*ank.getStudentCount();
-                            n.coursProj= f.coefCursProject* ank.getStudentCount();
+                            n.coursRab = f.coefCursRab * ank.getStudentCount();
+                            n.coursProj = f.coefCursProject * ank.getStudentCount();
                             //n.contrRab= f.coefContrRab*ank.getStudentCount()*1;//?
 
                             if (Objects.equals(plan.getDiplomName(), "проект")) {
-                                n.diplomProekt =f.coefDiplomProekt*ank.getStudentCount();
+                                n.diplomProekt = f.coefDiplomProekt * ank.getStudentCount();
                             }
                             if (Objects.equals(plan.getDiplomName(), "работа")) {
 
-                                n.diplomProekt =f.coefDiplomRabota*ank.getStudentCount();
+                                n.diplomProekt = f.coefDiplomRabota * ank.getStudentCount();
                             }
 
-                            n.gek= f.coefGEKZashDipl*ank.getStudentCount();
+                            n.gek = f.coefGEKZashDipl * ank.getStudentCount();
 
                             nagr.add(n);
 //                            n.diplomProekt = f.coefDiplomRecenz*2 ;
@@ -122,9 +127,6 @@ public class NagruzkaService {
 //                                n.gek= f.coefGEKSpec*ank.getStudentCount();
 //                                nagr.add(n);
 //                            }
-
-
-
 
 
                         }
