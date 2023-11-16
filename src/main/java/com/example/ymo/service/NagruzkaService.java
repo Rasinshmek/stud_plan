@@ -41,7 +41,7 @@ public class NagruzkaService {
         System.out.println("111");
         LoadFromFile f = new LoadFromFile();
         System.out.println("222");
-        List<AnketDTO> ankets = otherServices.getAnketDTOs2();
+        List<AnketDTO> ankets = otherServices.getAnketDTOs();
         long i = 1;
         System.out.println("2");
         for (AnketDTO ank : ankets) {
