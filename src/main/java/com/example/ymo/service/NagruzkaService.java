@@ -84,7 +84,7 @@ public class NagruzkaService {
                                 n.view = round(n.countStudenty * f.coefView);
                             if (Objects.equals(type, "дифзачёт"))
                                 n.difZach = round(n.countStudenty * f.coefDifZach);
-                            if (Objects.equals(type, "зачёт")) ;
+                            if (Objects.equals(type, "зачёт"))
                                 n.zach = round(n.countStudenty * f.coefZach);
                             n.rgr = round(n.countStudenty * f.coefRGR * semestr.getRgr());
 
